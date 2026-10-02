@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Илья &amp; Юлия — приглашение на свадьбу</title>
+  <meta name="description" content="Илья и Юлия приглашают вас на свадьбу 14 ноября 2026 года. Место, время и анкета гостя.">
+
+  <!-- Личное приглашение не должно попадать в поиск. Чтобы сайт индексировался — удалите эту строку. -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#976E52">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph: превью ссылки в Telegram/WhatsApp.
+       После публикации замените ВАШ-ЛОГИН и ВАШ-РЕПОЗИТОРИЙ на свои (см. README.md, шаг 5). -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Илья &amp; Юлия — приглашение на свадьбу">
+  <meta property="og:description" content="14 ноября 2026 · пгт Мостовской. Приглашаем вас разделить с нами этот день.">
+  <meta property="og:image" content="https://ВАШ-ЛОГИН.github.io/ВАШ-РЕПОЗИТОРИЙ/images/og-image.jpg">
+  <meta property="og:url" content="https://ВАШ-ЛОГИН.github.io/ВАШ-РЕПОЗИТОРИЙ/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap">
+
+  <!-- Страховка: если скрипты не загрузились, показываем страницу без заставки и без анимаций -->
+  <script>
+    document.documentElement.classList.add('js', 'is-locked');
+    setTimeout(function () {
+      if (!window.__siteReady) document.documentElement.classList.remove('js', 'is-locked');
+    }, 4000);
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ===== ЗАСТАВКА ===== -->
+  <button class="intro" id="intro" type="button" aria-label="Открыть приглашение">
+    <span class="intro__inner">
+      <span class="intro__monogram" data-bind="monogram">И | Ю</span>
+      <span class="intro__tagline" data-bind="names">Илья &amp; Юлия</span>
+      <span class="intro__hint" data-bind="intro.hint">Нажмите, чтобы открыть</span>
+    </span>
+  </button>
+
+  <main id="site">
+
+    <!-- ===== 1. ГЛАВНЫЙ ЭКРАН ===== -->
+    <header class="hero" id="top">
+      <div class="hero__media">
+        <img class="hero__img" src="images/hero.jpg" alt="Илья и Юлия под клёном в осеннем парке" width="1200" height="1800" fetchpriority="high" decoding="async">
+      </div>
+      <div class="hero__content">
+        <p class="hero__tagline" data-reveal="fade" style="--d:.5s" data-bind="tagline" hidden></p>
+        <h1 class="hero__names" data-reveal="up" style="--d:.2s" data-bind="names">Илья &amp; Юлия</h1>
+        <p class="hero__date" data-reveal="fade" style="--d:.8s" data-bind="dateText">14 ноября 2026</p>
+        <a class="hero__scroll" href="#welcome" data-reveal="fade" style="--d:1.2s">
+          <span data-bind="heroScrollText">Листайте вниз</span>
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </header>
+
+    <!-- ===== 2. ПРИВЕТСТВИЕ ===== -->
+    <section class="section section--narrow" id="welcome" data-needs="welcome.text">
+      <h2 class="title" data-reveal="up" data-bind="welcome.title">Добро пожаловать</h2>
+      <div class="prose prose--center" data-reveal="up" style="--d:.12s" data-bind="welcome.text" data-paragraphs>
+        <p>[ТЕКСТ]</p>
+      </div>
+    </section>
+
+    <!-- ===== 3. ИСТОРИЯ ===== -->
+    <section class="section section--narrow" id="story" data-needs="story.text">
+      <h2 class="title" data-reveal="up" data-bind="story.title">Наша история</h2>
+      <div class="prose" data-reveal="up" style="--d:.12s" data-bind="story.text" data-paragraphs>
+        <p>[ИСТОРИЯ]</p>
+      </div>
+    </section>
+
+    <!-- ===== 4. ФОТОГАЛЕРЕЯ И ЦИТАТА ===== -->
+    <section class="section gallery" id="gallery" aria-label="Фотогалерея" data-needs-list="gallery.photos">
+      <div class="gallery__panel" data-reveal="up">
+        <h2 class="title" data-bind="gallery.title" hidden></h2>
+        <!-- Фото строятся из js/config.js → gallery.photos -->
+        <div class="gallery__grid" id="galleryGrid"></div>
+        <blockquote class="quote" id="quote" data-reveal="fade" style="--d:.15s">
+          <p class="quote__text" data-bind="quote.text">Любовь от Бога</p>
+          <footer><cite class="quote__author" data-bind="quote.author">1-е Иоанна 4:7</cite></footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ===== 7. ГДЕ И КОГДА ===== -->
+    <section class="section section--narrow event" id="event">
+      <h2 class="title" data-reveal="up" data-bind="event.title">Где и когда</h2>
+      <dl class="info">
+        <div class="info__item" data-reveal="up">
+          <dt>Дата</dt>
+          <dd data-bind="dateText">14 ноября 2026</dd>
+        </div>
+        <div class="info__item" data-reveal="up" style="--d:.1s">
+          <dt>Начало</dt>
+          <dd data-bind="timeText">10:00</dd>
+        </div>
+        <div class="info__item" data-reveal="up" style="--d:.2s">
+          <dt>Место</dt>
+          <dd data-bind="event.place">пгт Мостовской</dd>
+        </div>
+        <div class="info__item" data-reveal="up" style="--d:.3s">
+          <dt>Адрес</dt>
+          <dd data-bind="event.address">ул. Березуцкого 29А</dd>
+        </div>
+      </dl>
+      <p class="note" data-reveal="fade" data-bind="event.note" hidden></p>
+      <div class="actions" data-reveal="fade">
+        <a class="btn btn--primary" id="routeBtn" href="#" target="_blank" rel="noopener" hidden>Построить маршрут</a>
+      </div>
+      <div class="map" id="mapWrap" data-reveal="fade" hidden></div>
+    </section>
+
+    <!-- ===== 8. КАЛЕНДАРЬ ===== -->
+    <section class="section calendar-section" id="calendar-block">
+      <div class="calendar" id="calendar" data-reveal="up">
+        <div class="calendar__panel">
+          <h2 class="calendar__title" id="calTitle">Ноябрь 2026</h2>
+          <div class="calendar__grid" id="calGrid" role="table" aria-label="Календарь"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 9. ОБРАТНЫЙ ОТСЧЁТ ===== -->
+    <section class="section countdown-section" id="countdown">
+      <div class="countdown" data-reveal="up">
+        <div class="countdown__inner">
+          <h2 class="countdown__title" data-bind="countdown.title">До нашего праздника осталось</h2>
+          <div class="countdown__grid" role="timer" aria-label="Обратный отсчёт до праздника">
+            <div class="countdown__cell"><span class="countdown__num" id="cd-days">00</span><span class="countdown__label" id="cd-days-l">дней</span></div>
+            <div class="countdown__cell"><span class="countdown__num" id="cd-hours">00</span><span class="countdown__label" id="cd-hours-l">часов</span></div>
+            <div class="countdown__cell"><span class="countdown__num" id="cd-minutes">00</span><span class="countdown__label" id="cd-minutes-l">минут</span></div>
+            <div class="countdown__cell"><span class="countdown__num" id="cd-seconds">00</span><span class="countdown__label" id="cd-seconds-l">секунд</span></div>
+          </div>
+          <p class="countdown__finished" id="cd-finished" hidden></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 10. ПРОГРАММА ===== -->
+    <section class="section section--narrow program" id="program">
+      <h2 class="title" data-reveal="up" data-bind="program.title">Программа дня</h2>
+      <ol class="timeline" id="timeline"></ol>
+    </section>
+
+    <!-- ===== 11. ДРЕСС-КОД ===== -->
+    <section class="section section--narrow dress" id="dresscode">
+      <h2 class="title" data-reveal="up" data-bind="dressCode.title">Дресс-код</h2>
+      <div class="prose prose--center" data-reveal="up" style="--d:.1s" data-bind="dressCode.text" data-paragraphs>
+        <p>[ОПИСАНИЕ ДРЕСС-КОДА]</p>
+      </div>
+      <ul class="swatches" id="swatches" data-reveal="fade" style="--d:.2s"></ul>
+      <p class="note" data-reveal="fade" data-bind="dressCode.note" hidden></p>
+    </section>
+
+    <!-- ===== 12. АНКЕТА ГОСТЯ ===== -->
+    <section class="rsvp" id="rsvp">
+      <div class="rsvp__inner">
+        <h2 class="title" data-reveal="up" data-bind="rsvp.title">Анкета гостя</h2>
+        <p class="rsvp__intro" data-bind="rsvp.intro" hidden></p>
+
+        <div class="card" data-reveal="up" style="--d:.1s">
+          <form class="form" id="rsvpForm" autocomplete="on">
+            <div class="field">
+              <label class="field__label" for="f-name">Имя и фамилия</label>
+              <input class="input" id="f-name" name="name" type="text" required autocomplete="name">
+            </div>
+
+            <fieldset class="field">
+              <legend class="field__label">Сможете ли вы прийти?</legend>
+              <div class="choices choices--row">
+                <label class="choice"><input type="radio" name="attend" value="Да" required><span>Да</span></label>
+                <label class="choice"><input type="radio" name="attend" value="Нет"><span>Нет</span></label>
+              </div>
+            </fieldset>
+
+            <!-- Дополнительные вопросы строятся из js/config.js → rsvp.fields -->
+            <div id="rsvpExtra"></div>
+
+            <!-- Ловушка для спам-ботов: человек это поле не видит -->
+            <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <button class="btn btn--primary btn--block" id="submitBtn" type="submit">Отправить</button>
+            <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="thanks" id="thanks" hidden>
+            <h3 class="thanks__title" id="thanksTitle">Спасибо!</h3>
+            <p id="thanksText">Ваш ответ отправлен.</p>
+          </div>
+        </div>
+
+        <!-- ===== 13. TELEGRAM ===== -->
+        <div class="chat" id="chat" data-reveal="up" hidden>
+          <h2 class="title title--sm" data-bind="telegram.title">Общий чат</h2>
+          <p class="chat__text" data-bind="telegram.text" hidden></p>
+          <a class="btn btn--light" id="tgBtn" href="#" target="_blank" rel="noopener">Перейти в Telegram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__names" data-bind="names">Илья &amp; Юлия</p>
+    <p class="footer__date" data-bind="dateText">14 ноября 2026</p>
+  </footer>
+
+  <!-- Кнопка музыки -->
+  <button class="music" id="musicBtn" type="button" aria-pressed="false" aria-label="Включить музыку" hidden>
+    <svg class="music__icon music__icon--play" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+    <svg class="music__icon music__icon--pause" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg>
+    <span class="music__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+  </button>
+
+  <!-- Просмотр фото -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фотографии" hidden>
+    <button class="lightbox__btn lightbox__close" id="lbClose" type="button" aria-label="Закрыть">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+    </button>
+    <button class="lightbox__btn lightbox__prev" id="lbPrev" type="button" aria-label="Предыдущее фото">
+      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </button>
+    <button class="lightbox__btn lightbox__next" id="lbNext" type="button" aria-label="Следующее фото">
+      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </button>
+    <figure class="lightbox__figure"><img id="lbImg" alt=""></figure>
+    <p class="lightbox__count" id="lbCount" aria-live="polite"></p>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
